@@ -83,10 +83,9 @@
 | Readability               | Can become unreadable (callback hell)                        | More readable, avoids deeply nested structures                     | Most readable, looks like synchronous code                          |
 | Error Handling            | Requires explicit error handling                             | Built-in `.catch` for error handling                               | Try/catch blocks for error handling                                 |
 | Chaining                  | Complex and harder to manage                                 | Simple with `.then`                                                | Simplified with `await`                                            |
-| 
+
 
 ## Promises
-Sure, let's delve deeper into promises in JavaScript.
 
 ### Promises in JavaScript
 
@@ -292,7 +291,6 @@ firstAsyncOperation()
 In summary, promises provide a robust way to handle asynchronous operations in JavaScript, making the code more readable and maintainable by avoiding deeply nested callbacks and offering a straightforward way to handle errors.
 
 ## async-await
-Sure, let's dive deeper into `async` and `await` in JavaScript.
 
 ### Overview of `async` and `await`
 
