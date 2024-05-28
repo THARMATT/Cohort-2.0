@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Bubbling Example</title>
+    <style>
+        div {
+            padding: 10px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child">Click me!</div>
+    </div>
+
+    <script>
+        // Add event listener to the parent element
+        const parent = document.getElementById('parent');
+        parent.addEventListener('click', function() {
+         alert('Parent clicked!');
+        });
+
+        // Add event listener to the child element
+        const child = document.getElementById('child');
+        child.addEventListener('click', function() {
+          alert('Child clicked!');
+        });
+    </script>
+</body>
+</html>

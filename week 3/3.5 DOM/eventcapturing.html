@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Capturing Example</title>
+    <style>
+        div {
+            padding: 10px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child">Click me!</div>
+    </div>
+
+    <script>
+        // Add event listener to the parent element with capturing phase
+        const parent = document.getElementById('parent');
+        parent.addEventListener('click', function() {
+           alert('Parent clicked!');
+        }, true);
+
+        // Add event listener to the child element with capturing phase
+        const child = document.getElementById('child');
+        child.addEventListener('click', function() {
+            alert('Child clicked!');
+        }, true);
+    </script>
+</body>
+</html>
