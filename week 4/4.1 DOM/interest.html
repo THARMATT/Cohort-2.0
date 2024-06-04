@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+    .parent {
+  position: relative;
+  height: 100vh; /* Or any other height */
+
+}
+.result{
+    margin-top: 20px;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+.child {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background-color:rgba(0, 0, 0, 0.412);
+  padding: 20px;
+  border-radius: 5px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 8px ;
+    padding: 2px;
+}
+button{
+    height: 30px;
+    width: 200px;
+    background-color:black;
+    font-size: x-large;
+    outline: none;
+    border: none;
+    color: azure;
+    border-radius: 6px;
+}
+</style>
+    <body class="parent">
+        <div class="container child">
+            <input type="text" id="rate"><br> <br>
+            <input type="text" id="time"> <br> <br>
+            <input type="text" id="principal"><br> <br>
+            <button onclick="calculateInterest()">Calculate</button>
+            <div id="result"></div>
+        </div>
+    </body>
+    <script>
+ async function calculateInterest(){
+    let p=document.getElementById('principal').value;
+    let r=document.getElementById('rate').value;
+    let t=document.getElementById('time').value;
+    console.log(p,r,t);
+const res=await fetch(`http://localhost:3000/interest?p=${p}&r=${r}&t=${t}`);
+const ans=await res.json();
+console.log(ans);
+alert(`Simple Interst is:${ans}`)
+const result=document.getElementById('result');
+result.innerHTML=ans.toString();
+
+ }
+</script>
+</html>

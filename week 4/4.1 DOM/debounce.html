@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+     .parent {
+  position: relative;
+  height: 100vh; /* Or any other height */
+
+}
+.result{
+    margin-top: 20px;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+.child {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 300px;
+  background-color:rgba(0, 0, 0, 0.412);
+  padding: 20px;
+  border-radius: 5px;
+}
+input{
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 8px ;
+    padding: 2px;
+}
+</style>
+<body>
+    <div class="child">
+        <input oninput="deboubcediv()" id="text" type="text">
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+    function deboubcediv(){
+     let timeout ;
+     clearTimeout(timeout)
+     teimeout=  setTimeout(()=>{
+debouce()
+
+        },1500)
+     
+    }
+    async function debouce(
+    ){
+        const text=document.getElementById('text').value;
+        const res=await fetch(`http://localhost:3000/debounce?text=${text}`);
+     
+        const ans= await res.text();
+        console.log(ans);
+        const result=document.getElementById('result');
+result.innerHTML=ans.toString();
+    }
+</script>
+</html>

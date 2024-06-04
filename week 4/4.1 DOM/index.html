@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            button{
+                cursor: pointer;
+                width: 14rem;
+                color: azure;
+                background-color: darkorange;
+                padding: 10px;
+                border: none;
+                outline: none;
+                border-radius: 6px solid white;
+            }
+            input{
+                background: #000;
+                color: aliceblue;
+                font-size:x-large;
+                margin: 2px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="number1" placeholder="Enter a number"> <br> <br>
+        <input type="text" id="number2" placeholder="Enter another number"> <br>
+        <br>
+        <button onclick="sumwithjs()">Calculate with js</button> <br> <br>
+        <button onclick="sumwithExpress()">Calculate with express</button> <br>
+        <br>
+        <br>
+        <button onclick="sumwithsumServer()">Calculate with Sum Server</button>
+        <br> <br>
+    </body>
+    <script>
+        function getNumbers() {
+            const number1 = document.getElementById('number1').value;
+            const number2 = document.getElementById('number2').value;
+            const num1 = parseInt(number1);
+            const num2 = parseInt(number2);
+            return { num1, num2 };
+        }
+
+        function sumwithjs() {
+            const { num1, num2 } = getNumbers();
+            let result = num1 + num2;
+            alert('The sum is ' + result);
+        }
+
+        async function sumwithExpress() {
+            const { num1, num2 } = getNumbers();
+            const sum = await fetch(`http://localhost:3000/sum?a=${num1}&b=${num2}`);
+            const res = await sum.json();
+            console.log(num1,num2);
+            console.log(sum);
+            console.log(res);
+            alert(`Sum of ${num1} and ${num2} is ${res}`);
+        }
+
+        async function sumwithsumServer() {
+            const { num1, num2 } = getNumbers();
+            const sum = await fetch(`https://sum-server.100xdevs.com/sum?a=${num1}&b=${num2}`);
+            const res = await sum.json();
+            console.log(num1,num2);
+            console.log(sum);
+            console.log(res);
+            alert(`Sum of ${num1} and ${num2} is: ${res}`);
+        }
+    </script>
+</html>

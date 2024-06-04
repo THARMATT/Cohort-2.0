@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo App</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <label for>Title</label>
+            <input type="text" name id="title"> <br> <br>
+            <label for>Description</label>
+            <input type="text" name id="description"><br> <br>
+
+            <button onclick="AddTodo()">Add Todo</button>
+            <!-- <button onclick="removeTodo()">Remove Todo</button>
+            <button onclick="markAsDone()">Mark as Done</button> -->
+            <div id="todolist">
+
+            </div>
+        </div>
+    </body>
+    <script>
+        // const todos=[];
+    
+    function AddTodo(){
+
+        const title=document.getElementById('title').value;
+        const description=document.getElementById('description').value;
+        const todolist=document.getElementById('todolist');
+        const todoElement=document.createElement('div');
+        const todoContainer=document.createElement('div');
+        const markAsDone=document.createElement('button');
+        const removeTodo=document.createElement('button');
+        removeTodo.textContent='Remove Todo'
+        markAsDone.textContent='Mark as done';
+        const titleElement=document.createElement('p');
+        titleElement.textContent='Title:'+title;
+        const descriptionElement=document.createElement('p');
+        descriptionElement.textContent="description:"+description
+   
+         if(title.length>0 && description.length>0){
+        todoElement.appendChild(titleElement);
+        todoElement.appendChild(descriptionElement);
+        todoElement.appendChild(markAsDone);
+        todoElement.appendChild(removeTodo)
+        
+        todolist.appendChild(todoElement);
+    }
+       else{
+        alert('Please provide todos')
+       }
+        
+        markAsDone.addEventListener('click',function(){
+           if(markAsDone.textContent=='Mark as done'){
+            titleElement.style.textDecoration = 'line-through';
+        descriptionElement.style.textDecoration = 'line-through';
+        markAsDone.textContent='Undo'
+           }
+           else{
+            titleElement.style.textDecoration = 'none';
+        descriptionElement.style.textDecoration = 'none';
+        markAsDone.textContent='Mark as done'
+           }
+        
+
+        })
+        removeTodo.addEventListener('click',function(){
+          titleElement.innerHTML='';
+          descriptionElement.innerHTML='';
+          todoElement.removeChild(markAsDone);
+          todoElement.removeChild(removeTodo)
+        })
+        // Easy way to just add
+        // todolist.innerHTML += '<p>Title: ' + title + '</p>';
+        // todolist.innerHTML += '<p>Description: ' + description + '</p>';
+        document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+            }
+    
+   
+
+      //  function removeTodo(){
+    //     const todolist=document.getElementById('todolist');
+    //    if(todos.length>0){
+    //     let lasttodo=todos.pop();
+    //    todolist.removeChild(lasttodo)
+    //    }
+    //  }
+</script>
+</html>
