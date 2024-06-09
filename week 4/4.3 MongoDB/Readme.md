@@ -119,10 +119,7 @@ npm install mongoose
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mydatabase', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect('mongodb://localhost:27017/mydatabase');
 
 // Define a schema
 const userSchema = new mongoose.Schema({
