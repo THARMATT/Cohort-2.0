@@ -8,7 +8,7 @@
 | 3     | Express                                   | 28 May 2024       | 28 May 2024     |
 | 4     | MongoDB                                   | 4 June 2024       | 4 June 2024     |
 | 5     | React                                     | 7 June 2024       | `8 June 2024`   |
-| 6     | React Hooks                               | 11 June 2024      | -               |
+| 6     | React Hooks                               | 11 June 2024      | `12 June 2024`            |
 | 7     | React State Management                    | 15 June 2024      | -               |
 | 8     | Tailwind                                  | 19 June 2024      | -               |
 | 9     | TS and Hooks                              | 23 June 2024      | -               |
